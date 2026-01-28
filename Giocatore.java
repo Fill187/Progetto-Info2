@@ -1,4 +1,5 @@
 public class Giocatore{
+    protected String nome;
     protected boolean isPrigioniero; 
     protected boolean hasCartaEsciPrigione;
     protected int portafoglio;
@@ -6,7 +7,8 @@ public class Giocatore{
     protected int stazioniPossedute;
     protected int turniInPrigione;
     
-    public Giocatore(int portafoglio){
+    public Giocatore(int portafoglio, String nome){
+        this.nome=nome;
         this.portafoglio = portafoglio;
         this.isPrigioniero = false;
         this.hasCartaEsciPrigione = false;

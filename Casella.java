@@ -1,27 +1,34 @@
-public class Casella{
+public class Casella {
+
     protected String nome;
-    protected int posizione;
-    
-    public Casella(String nome, int posizione){
+    protected Casella precedente;
+    protected Casella successiva;
+
+    public Casella(String nome) {
         this.nome = nome;
-        this.posizione = posizione;
+        this.precedente = null;
+        this.successiva = null;
     }
-    public String getNome(){
+
+    public String getNome() {
         return nome;
     }
-    public void setNome(String nome){
-        this.nome = nome;
+
+    public Casella getSuccessiva() {
+        return successiva;
     }
-    public int getPosizione(){
-        return posizione;
+
+    public Casella getPrecedente() {
+        return precedente;
     }
-    public void setPosizione(int posizione){
-        this.posizione = posizione;
+
+    public void setSuccessiva(Casella c) {
+        successiva = c;
     }
-    public String toString(){
-        String s = "";
-        s += "Nome: " + nome + "\n";
-        s += "Posizione" + posizione + "\n";
-        return s;
+
+    public void setPrecedente(Casella c) {
+        precedente = c;
     }
+
+    
 }

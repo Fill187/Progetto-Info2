@@ -1,29 +1,35 @@
-import java.util.ArrayList;
 
 public class Gioco {
 
     private Tabellone tabellone;
-    private ArrayList<Giocatore> giocatori;
+    private Giocatore giocatori[];
     private int numeroGiocatori;
-    private Banca banca;
-    private Dadi dadi;
-    private MazzoImprevisti mazzo;
+    //private Banca banca;
+    private Dadi dadi=new Dadi();
+    private int giocatoriAttuali=0;
+    private int maxGiocatori;
+    //private MazzoImprevisti mazzo;
 
-    public Gioco() {
+    public Gioco(Tabellone Tabellone) {
         tabellone = new Tabellone();
-        giocatori = new ArrayList<>();
-        numeroGiocatori = 0;
-        banca = new Banca(100000);
-        dadi = new Dadi();
-        mazzo = new MazzoImprevisti();
+        giocatoriAttuali=0;
     }
 
-    public void aggiungiGiocatore(Giocatore g) {
-        giocatori.add(g);
-        numeroGiocatori++;
+    public void setNumMaxGiocatori(int n){
+        maxGiocatori=n;
+        giocatori=new Giocatore[maxGiocatori];
     }
 
-    public void muovi(Giocatore g, int passi) {
+    public void aggiungiGiocatore(Giocatore g){
+        if(giocatoriAttuali<maxGiocatori){
+            giocatori[giocatoriAttuali]=g;
+            giocatoriAttuali++;
+        } else{
+            System.out.println("Impossibile aggiungere ulteriori giocatori. Limite raggiunto");
+        }
+    }
+    
+    /*public void muovi(Giocatore g, int passi) {
         Casella pos = g.getPosizione();
 
         for (int i = 0; i < passi; i++) {
@@ -92,5 +98,5 @@ public class Gioco {
         if (numeroGiocatori == 1) {
             System.out.println("Vince " + giocatori.get(0).getNome());
         }
-    }
+    }*/
 }

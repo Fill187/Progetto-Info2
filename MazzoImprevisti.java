@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+/*import java.util.ArrayList;
 import java.util.Random;
 
 public class MazzoImprevisti {
@@ -46,4 +46,4 @@ public class MazzoImprevisti {
         this.indiceCorrente = indiceCorrente - 1;
         return carta;
     }
-}
+}*/

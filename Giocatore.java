@@ -10,10 +10,9 @@ public class Giocatore {
     private boolean inPrigione;
     private int turniPrigione;
 
-    public Giocatore(String nome, int soldiIniziali, Casella start) {
+    public Giocatore(String nome, int soldiIniziali ) {
         this.nome = nome;
         this.soldi = soldiIniziali;
-        this.posizione = start;
         this.terreni = new ArrayList<>();
         this.numeroTerreni = 0;
         this.inPrigione = false;

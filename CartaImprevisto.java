@@ -1,5 +1,5 @@
 
-public class CartaImprevisto{
+/*public class CartaImprevisto{
     private String nome;
     private String descrizione;
     private TipoAzione tipoAzione;
@@ -43,4 +43,4 @@ public class CartaImprevisto{
     public void applicaEffettoBonusOrMalus(Giocatore giocatore, int importo){
         giocatore.setPortafoglio(giocatore.getPortafoglio() + importo);
     }
-}
+}*/

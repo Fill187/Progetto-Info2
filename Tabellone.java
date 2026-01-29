@@ -1,73 +1,52 @@
-import java.util.ArrayList;
-
 public class Tabellone {
 
-    private ArrayList<Casella> caselle;
+    private Casella caselle[];
     private int numeroCaselle;
-    private Casella start;
-    private Casella prigione;
 
     public Tabellone() {
-        caselle = new ArrayList<>();
-        numeroCaselle = 0;
+        caselle=new Casella[24];
+        numeroCaselle=0;
     }
 
     public void aggiungiCasella(Casella c) {
-        caselle.add(c);
+    if (numeroCaselle == 0) {
+        caselle[0] = c;
+        c.setPrecedente(c);
+        c.setSuccessiva(c);
         numeroCaselle++;
+        return;
     }
+    Casella prima = caselle[0];
+    Casella ultima = caselle[numeroCaselle - 1];
+    ultima.setSuccessiva(c);
+    c.setPrecedente(ultima);
+    c.setSuccessiva(prima);
+    prima.setPrecedente(c);
+    caselle[numeroCaselle] = c;
+    numeroCaselle++;
+}
 
-    public void collega() {
-        for (int i = 0; i < numeroCaselle; i++) {
 
-            Casella attuale = caselle.get(i);
-
-            Casella succ;
-            if (i == numeroCaselle - 1)
-                succ = caselle.get(0);
-            else
-                succ = caselle.get(i + 1);
-
-            Casella prec;
-            if (i == 0)
-                prec = caselle.get(numeroCaselle - 1);
-            else
-                prec = caselle.get(i - 1);
-
-            attuale.setSuccessiva(succ);
-            attuale.setPrecedente(prec);
-        }
-    }
-
-    public void setStart(Casella c) {
-        start = c;
-    }
-
-    public Casella getStart() {
-        return start;
-    }
-
-    public void setPrigione(Casella c) {
-        prigione = c;
+    public Casella getCasellaIniziale(){
+        return caselle[0];
     }
 
     public Casella getPrigione() {
-        return prigione;
-    }
-
-    public ArrayList<Casella> getCaselle() {
-        return caselle;
+        return caselle[5];
     }
 
     public int getNumeroCaselle() {
         return numeroCaselle;
     }
 
-    public void stampa() {
-        System.out.println("Tabellone: ");
-        for (int i = 0; i < numeroCaselle; i++) {
-            Casella c = caselle.get(i);
-            System.out.println(i + " - " + c.getNome());
+    public void stampaTabellone(){
+        System.out.println("TABELLONE DI GIOCO");
+        System.out.println("---------------------------------------------");
+        System.out.println("---------------------------------------------");
+        for(int cont1=0;cont1<caselle.length;cont1++){
+            System.out.println(caselle[cont1].toString());
+            System.out.println("---------------------------------------------");
+            System.out.println("---------------------------------------------");
         }
     }
 }

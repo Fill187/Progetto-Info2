@@ -1,8 +1,8 @@
 public class Casella {
 
-    protected String nome;
-    protected Casella precedente;
-    protected Casella successiva;
+    private String nome;
+    private Casella precedente;
+    private Casella successiva;
 
     public Casella(String nome) {
         this.nome = nome;
@@ -28,6 +28,12 @@ public class Casella {
 
     public void setPrecedente(Casella c) {
         precedente = c;
+    }
+
+    @Override
+    public String toString() {
+        String s="";
+        return s+nome;
     }
 
     

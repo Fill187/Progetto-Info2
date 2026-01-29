@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Banca{
+/*public class Banca{
     private ArrayList<Terreno> terreniInVendita;
     
     public Banca(){
@@ -16,4 +16,4 @@ public class Banca{
     public void riscuotiTassa(Giocatore giocatore, double somma){
         giocatore.setPortafoglio(giocatore.getPortafoglio() - importo);
     }
-}
+}*/

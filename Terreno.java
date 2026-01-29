@@ -1,9 +1,9 @@
 public class Terreno extends Casella{
-    protected String colore;
-    protected int prezzo;
-    protected int rendita;
-    protected String proprietario;
-    protected int numCase;
+    private String colore;
+    private int prezzo;
+    private int rendita;
+    private String proprietario;
+    private int numCase;
 
     public Terreno(String nome, String colore, int prezzo, int rendita){
         super(nome);
@@ -45,7 +45,9 @@ public class Terreno extends Casella{
         this.proprietario = proprietario;
     }
 
-    
-
-    
+    @Override
+    public String toString() {
+        String s="";
+        return s+super.toString()+"|Colore: "+colore+",\n| Prezzo: "+prezzo+",\n| Rendita: "+rendita+",\n| Case: "+numCase+",\n| Proprietario: "+proprietario;
+    }
 }

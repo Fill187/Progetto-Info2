@@ -1,11 +1,9 @@
-import java.util.ArrayList;
-
 public class Giocatore {
 
     private String nome;
     private int soldi;
     private Casella posizione;
-    private ArrayList<Terreno> terreni;
+    private Terreno[] terreni;
     private int numeroTerreni;
     private boolean inPrigione;
     private int turniPrigione;
@@ -14,7 +12,7 @@ public class Giocatore {
     public Giocatore(String nome, int soldiIniziali) {
         this.nome = nome;
         this.soldi = soldiIniziali;
-        this.terreni = new ArrayList<>();
+        this.terreni = new Terreno[24];
         this.numeroTerreni = 0;
         this.inPrigione = false;
         this.turniPrigione = 0;
@@ -51,16 +49,20 @@ public class Giocatore {
     }
 
     public void aggiungiTerreno(Terreno t) {
-        terreni.add(t);
-        numeroTerreni++;
+        if (numeroTerreni < terreni.length) {
+            terreni[numeroTerreni] = t;
+            numeroTerreni++;
+        }
     }
 
     public int getNumeroTerreni() {
         return numeroTerreni;
     }
 
-    public ArrayList<Terreno> getTerreni() {
-        return terreni;
+    public Terreno[] getTerreni() {
+        Terreno[] res = new Terreno[numeroTerreni];
+        for (int i = 0; i < numeroTerreni; i++) res[i] = terreni[i];
+        return res;
     }
 
     public boolean isInPrigione() {
@@ -81,6 +83,10 @@ public class Giocatore {
                 System.out.println(nome + " è uscito di prigione");
             }
         }
+    }
+
+    public int getTurniPrigione() {
+        return turniPrigione;
     }
 
     public boolean morto() {

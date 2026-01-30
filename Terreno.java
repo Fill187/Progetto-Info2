@@ -61,10 +61,10 @@ public class Terreno extends Casella {
         String s = "";
         String nomeProprietario = (proprietario == null) ? "Nessuno" : proprietario.getNome();
         return s + super.toString() +
-                " | Colore: " + colore +
-                ", Prezzo: " + prezzo +
-                ", Rendita: " + rendita +
-                ", Case: " + numCase +
-                ", Proprietario: " + nomeProprietario;
+                "| Colore: " + colore +
+                "\n| Prezzo: " + prezzo +
+                "\n| Rendita: " + rendita +
+                "\n| Case: " + numCase +
+                "\n| Proprietario: " + nomeProprietario;
     }
 }

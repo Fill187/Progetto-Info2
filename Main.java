@@ -4,9 +4,10 @@ public class Main {
         creaTabellone(tabellone);
         Gioco gioco1=new Gioco(tabellone);
         aggiungiGiocatore(gioco1);
-        tabellone.stampaTabellone();
+        tabellone.stampaTabellone(gioco1.getGiocatori());
         gioco1.avviaPartita();
         while (!gioco1.isFinita()) {
+            tabellone.stampaTabellone(gioco1.getGiocatori());
             System.out.println("\nPremi INVIO per eseguire il prossimo turno");
             Leggi.unoString();
             gioco1.eseguiTurno();

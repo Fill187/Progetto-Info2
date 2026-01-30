@@ -39,10 +39,28 @@ public class Tabellone {
     }
 
     public void stampaTabellone() {
+        stampaTabellone((Giocatore[]) null);
+    }
+
+    public void stampaTabellone(Giocatore[] giocatori) {
         System.out.println("TABELLONE DI GIOCO");
-        
+
         for (int cont1 = 0; cont1 < numeroCaselle; cont1++) {
             System.out.println(caselle[cont1].toString());
+
+            if (giocatori != null) {
+                String players = "";
+                for (Giocatore g : giocatori) {
+                    if (g != null && g.getPosizione() == caselle[cont1]) {
+                        if (!players.equals("")) players += ", ";
+                        players += g.getNome();
+                    }
+                }
+                if (!players.equals("")) {
+                    System.out.println("Giocatori qui: " + players);
+                }
+            }
+
             System.out.println("---------------------------------------------");
         }
     }

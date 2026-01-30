@@ -5,7 +5,12 @@ public class Main {
         Gioco gioco1=new Gioco(tabellone);
         aggiungiGiocatore(gioco1);
         tabellone.stampaTabellone();
-
+        gioco1.avviaPartita();
+        while (!gioco1.isFinita()) {
+            System.out.println("\nPremi INVIO per eseguire il prossimo turno");
+            Leggi.unoString();
+            gioco1.eseguiTurno();
+        }
     }
 
     public static void creaTabellone(Tabellone tabellone){

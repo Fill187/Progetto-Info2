@@ -1,15 +1,17 @@
-public class Terreno extends Casella{
+public class Terreno extends Casella {
     private String colore;
     private int prezzo;
     private int rendita;
-    private String proprietario;
+    private Giocatore proprietario;
     private int numCase;
 
-    public Terreno(String nome, String colore, int prezzo, int rendita){
+    public Terreno(String nome, String colore, int prezzo, int rendita) {
         super(nome);
-        this.colore=colore;
-        this.prezzo=prezzo;
-        this.rendita=rendita;
+        this.colore = colore;
+        this.prezzo = prezzo;
+        this.rendita = rendita;
+        this.proprietario = null;
+        this.numCase = 0;
     }
 
     public String getColore() {
@@ -24,30 +26,45 @@ public class Terreno extends Casella{
         return rendita;
     }
 
+    
+    public int getCosto() {
+        return prezzo;
+    }
+
+    public int getAffitto() {
+        return rendita;
+    }
+
     public int getNumCase() {
         return numCase;
     }
 
-    public void aggiungiCasa(){
-        if(numCase<4){
+    public void aggiungiCasa() {
+        if (numCase < 4) {
             numCase++;
             System.out.println("Casa aggiunta.");
-        } else{
-            System.out.println("Casa non aggiunta limite massimo raggiunto");
+        } else {
+            System.out.println("Casa non aggiunta, limite massimo raggiunto");
         }
     }
 
-    public String getProprietario() {
+    public Giocatore getProprietario() {
         return proprietario;
     }
 
-    public void setProprietario(String proprietario) {
+    public void setProprietario(Giocatore proprietario) {
         this.proprietario = proprietario;
     }
 
     @Override
     public String toString() {
-        String s="";
-        return s+super.toString()+"|Colore: "+colore+",\n| Prezzo: "+prezzo+",\n| Rendita: "+rendita+",\n| Case: "+numCase+",\n| Proprietario: "+proprietario;
+        String s = "";
+        String nomeProprietario = (proprietario == null) ? "Nessuno" : proprietario.getNome();
+        return s + super.toString() +
+                " | Colore: " + colore +
+                ", Prezzo: " + prezzo +
+                ", Rendita: " + rendita +
+                ", Case: " + numCase +
+                ", Proprietario: " + nomeProprietario;
     }
 }

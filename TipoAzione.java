@@ -1,4 +1,4 @@
 public enum TipoAzione {
-    SPOSTAMENTO
+    SPOSTAMENTO,
     BONUS_MALUS
 }

@@ -9,14 +9,16 @@ public class Giocatore {
     private int numeroTerreni;
     private boolean inPrigione;
     private int turniPrigione;
+    private boolean eliminato;
 
-    public Giocatore(String nome, int soldiIniziali ) {
+    public Giocatore(String nome, int soldiIniziali) {
         this.nome = nome;
         this.soldi = soldiIniziali;
         this.terreni = new ArrayList<>();
         this.numeroTerreni = 0;
         this.inPrigione = false;
         this.turniPrigione = 0;
+        this.eliminato = false;
     }
 
     public String getNome() {
@@ -33,6 +35,11 @@ public class Giocatore {
 
     public void incassa(int x) {
         soldi += x;
+    }
+
+    // alias per il codice in Gioco
+    public void ricevi(int x) {
+        incassa(x);
     }
 
     public Casella getPosizione() {
@@ -78,6 +85,24 @@ public class Giocatore {
 
     public boolean morto() {
         return soldi < 0;
+    }
+
+    public boolean isEliminato() {
+        return eliminato;
+    }
+
+    public void setEliminato(boolean eliminato) {
+        this.eliminato = eliminato;
+    }
+
+    // movimento sul tabellone circolare usando i puntatori successiva
+    public void muovi(int passi, int numeroCaselle) {
+        if (posizione == null) {
+            return;
+        }
+        for (int i = 0; i < passi; i++) {
+            posizione = posizione.getSuccessiva();
+        }
     }
 
     public String toString() {
